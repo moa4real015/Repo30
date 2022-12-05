@@ -1,0 +1,61 @@
+
+#!/bin/bash
+sudo su
+yum update -y
+yum install httpd -y
+cd /var/www/html
+echo "Welcome to Kelani's Home in Scarborough" > index.html
+service httpd start
+chkconfig httpd on
+
+
+
+AWS_instance provider
+
+
+provider "aws" {
+  region     = "ca-central-1"
+  access_key = "AKIAQTXBG4XGYDGWIHUM"
+  secret_key = "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"
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-06b0bb707079eb96a"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+
+
+Note: Learning terraform token
+Learning terraform token : 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
+
+
+terraform {
+  required_providers {
+    github = {
+      source = "integrations/github"
+      version = "4.29.0"
+    }
+  }
+}
+
+provider "github" {
+  token = "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"
+}
+
+
+resource "github_repository" "nagul_In" {
+  name        = "repo2308"
+  description = "My repository"
+
+  visibility = "private"
+
+  template {
+    owner      = "github"
+    repository = "terraform-module-template"
+  }
+}
+

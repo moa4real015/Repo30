@@ -1,0 +1,24 @@
+provider "aws" {
+  region = "ca-central-1"
+}
+resource "aws_instance" "Demo" {
+  ami           = "ami-0b6937ac543fe96d7"
+  instance_type = "t2.micro"
+  key_name = "Ubuntu-Keypair"
+  tags = {
+    Name = "DemoEC2-90"
+  }
+}
+
+
+
+provider "aws" {
+  region     = "ca-central-1"
+  access_key = "AKIAQTXBG4XGYDGWIHUM"
+  secret_key = "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"
+}
+
+resource "aws_instance" "web" {
+  ami           = "ami-06b0bb707079eb96a"
+  instance_type = "t2.micro"
+}
