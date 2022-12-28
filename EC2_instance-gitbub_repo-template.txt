@@ -1,22 +1,10 @@
-
-#!/bin/bash
-sudo su
-yum update -y
-yum install httpd -y
-cd /var/www/html
-echo "Welcome to Kelani's Home in Scarborough" > index.html
-service httpd start
-chkconfig httpd on
-
-
-
 AWS_instance provider
 
 
 provider "aws" {
   region     = "ca-central-1"
-  access_key = "AKIAQTXBG4XGYDGWIHUM"
-  secret_key = "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"
+  access_key = ""
+  secret_key = ""
 }
 
 resource "aws_instance" "web" {
@@ -29,7 +17,7 @@ resource "aws_instance" "web" {
 
 
 
-Note: Learning terraform token
+# Note: Learning terraform token
 Learning terraform token : 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
 
 
